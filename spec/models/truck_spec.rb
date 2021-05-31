@@ -5,7 +5,7 @@ RSpec.describe Truck do
     let(:truck) { build :truck }
 
     it "serialize state to json" do
-      expect(truck.to_json).to match /"#{truck.name}"/
+      expect(truck.to_json).to match /"#{truck.id}"/
     end
   end
 end
