@@ -8,3 +8,7 @@ edit flow.rb
 ```
 ruby flow.rb
 ```
+
+# Running tests
+
+rspec
