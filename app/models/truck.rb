@@ -3,17 +3,17 @@ class Truck
   include ActiveModel::Attributes
   include ActiveModel::Serializers::JSON
 
-  validates :name, presence: true
+  validates :id, presence: true
 
   attribute :inventory, array: FoodItem, default: []
-  attribute :name, :string
+  attribute :id, :string
 
   def save
-    $redis.set "truck:#{name}", self.to_json
+    $redis.set "truck:#{id}", self.to_json
   end
 
-  def self.find(name)
-    truck_json = $redis.get("truck:#{name}")
+  def self.find(id)
+    truck_json = $redis.get("truck:#{id}")
     truck_attr = JSON.parse(truck_json)
     new(truck_attr)
   end
