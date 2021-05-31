@@ -28,7 +28,7 @@ class Order < EmbededType
       OrderItem.new(name: item.name, price: item.price, quantity: 1) # TODO group items and increment quantity
     end
 
-    if items.count < purchase_items.count
+    if items&.count.to_i < purchase_items.count
       Order.new(items: items, error: "Inventory error")
     else
       Order.new(

@@ -18,3 +18,12 @@ order = Order.build(truck: truck, purchase_items: [
 ])
 
 puts order.to_json
+
+
+order = Order.build(truck: truck, purchase_items: [
+  FoodItem.new(price: 230, name: "Snack Bar"),
+  FoodItem.new(price: 230, name: "Snack Bar"),
+  FoodItem.new(price: 230, name: "Snack Bar")
+])
+
+puts order.to_json
